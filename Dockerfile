@@ -1,8 +1,5 @@
-FROM nginx:latest
-MAINTAINER mike.coleman@docker.com
+FROM java:8
+WORKDIR /home/app
 
-# Copy index.html  
-COPY index.html /usr/share/nginx/html/ 
-
-# expose port 80
-EXPOSE 80
+COPY target/gs-spring-boot-0.1.0.jar .
+CMD ["java", "-jar", "gs-spring-boot-0.1.0.jar"]
